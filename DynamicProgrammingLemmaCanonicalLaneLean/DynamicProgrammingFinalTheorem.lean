@@ -1,0 +1,18 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.DynamicProgrammingLemmaCanonicalLaneLean.BellmanEquation
+import HautevilleHouse.DynamicProgrammingLemmaCanonicalLaneLean.ValueIteration
+import HautevilleHouse.DynamicProgrammingLemmaCanonicalLaneLean.PolicyIteration
+import HautevilleHouse.DynamicProgrammingLemmaCanonicalLaneLean.OptimalSubstructure
+import HautevilleHouse.DynamicProgrammingLemmaCanonicalLaneLean.PrincipleOfOptimality
+
+namespace HautevilleHouse
+namespace DynamicProgrammingLemmaCanonicalLaneLean
+
+def DynamicProgrammingLemmaClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem dynamic_programming_lemma_endgame (A : AdmissibleClass) : DynamicProgrammingLemmaClosure A :=
+  And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DynamicProgrammingLemmaCanonicalLaneLean
+end HautevilleHouse
